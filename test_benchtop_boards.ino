@@ -13,6 +13,7 @@ int regen_out =   4; //Digital (PWM)
 int clutch_in =   24; //Digital
 int assist_in =   25; //Digital (PULLED LOW)
 int brake_in =    26; //Digital
+int engineEnable = 27; //Digital
 Servo servo, kelly, regen;
 
 
@@ -23,6 +24,7 @@ void setup() {
   pinMode(clutch_in,INPUT);
   pinMode(assist_in, INPUT);
   pinMode(brake_in, INPUT);
+  pinMode(engineEnable, INPUT);
   servo.attach(servo_out);
   kelly.attach(kelly_out);
   regen.attach(regen_out);
@@ -52,5 +54,8 @@ void loop() {
   Serial.println(digitalRead(assist_in));
   Serial.print("BrakeIn ");
   Serial.println(digitalRead(brake_in));
+  Serial.print("EngineEnable ");
+  Serial.println(digitalRead(engineEnable));
+  
   delay(10);
 }
